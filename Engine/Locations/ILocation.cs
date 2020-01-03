@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Engine.Locations
 {
     public interface ILocation
@@ -5,5 +7,6 @@ namespace Engine.Locations
         ILocation[] Directions { get; }
         string DetailedSensation { get; }
         string NearbySensation { get; }
+        List<InventoryItem> Items { get; set; }
     }
 }

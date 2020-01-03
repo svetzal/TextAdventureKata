@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Engine.Locations;
 
 namespace Engine
@@ -18,6 +19,7 @@ namespace Engine
         {
             Orientation = orientation;
             Location = location;
+            Inventory = new List<InventoryItem>();
         }
 
         public int Orientation { get; set; }
@@ -29,6 +31,7 @@ namespace Engine
         public States CurrentState { get; private set; }
 
         public string Greeting => "Hello, World!";
+        public List<InventoryItem> Inventory { get; set; }
 
         public string ProcessCommand(string command)
         {
