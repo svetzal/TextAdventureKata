@@ -14,17 +14,13 @@ namespace Engine.Actions
             else if ("backward" == parts.Last())
                 direction = DirectionCalculator.Reverse(engine.Orientation);
 
-            if (direction >= 0)
-            {
-                var oldLocation = engine.Location;
-                engine.Location = oldLocation.Directions[direction];
+            if (direction == -1) return $"I don't know how to move {parts.Last()}";
+            if (engine.Location.Directions[direction] == null) return $"You cannot move {parts.Last()}";
+            
+            var oldLocation = engine.Location;
+            engine.Location = oldLocation.Directions[direction];
 
-                if (engine.Location == null) throw new Exception();
-
-                return $"You move {parts.Last()}";
-            }
-
-            return $"I don't know how to move {parts.Last()}";
+            return $"You move {parts.Last()}";
         }
     }
 }
