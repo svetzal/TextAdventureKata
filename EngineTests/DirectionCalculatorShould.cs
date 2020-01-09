@@ -22,5 +22,17 @@ namespace EngineTests
         {
             Assert.Equal(DirectionCalculator.West, DirectionCalculator.Reverse(DirectionCalculator.East));
         }
+
+        [Fact]
+        public void ReturnNorthWhenTurnedRightFromWest()
+        {
+            Assert.Equal(DirectionCalculator.North, DirectionCalculator.TurnRight(DirectionCalculator.West));
+        }
+
+        [Fact]
+        public void ReturnWestWhenTurnedLeftFromNorth()
+        {
+            Assert.Equal(DirectionCalculator.West, DirectionCalculator.TurnLeft(DirectionCalculator.North));
+        }
     }
 }

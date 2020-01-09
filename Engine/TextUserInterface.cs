@@ -27,21 +27,21 @@ namespace Engine
 
         private string ConstructDescription(int orientation, ILocation location)
         {
-            string[] directionalPreambles = {"Ahead of you", "To your left", "Behind you", "To your right"};
+            string[] directionalPreambles = {"Ahead of you", "To your right", "Behind you", "To your left"};
 
             var sb = new StringBuilder();
 
             sb.Append(location.DetailedSensation);
             sb.Append(" ");
 
-            for (var i = 0; i < 4; i++)
+            for (var i = orientation; i < orientation+4; i++)
             {
-                var offsetOrientation = (i + orientation) % 4;
-                if (location.Directions[i] != null)
+                var offsetOrientation = i % 4;
+                if (location.Directions[offsetOrientation] != null)
                 {
-                    sb.Append(directionalPreambles[offsetOrientation]);
+                    sb.Append(directionalPreambles[i - orientation]);
                     sb.Append(", ");
-                    sb.Append(location.Directions[i].NearbySensation);
+                    sb.Append(location.Directions[offsetOrientation].NearbySensation);
                     sb.Append(". ");
                 }
             }

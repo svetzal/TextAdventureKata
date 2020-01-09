@@ -17,5 +17,15 @@ namespace Engine
         {
             return (i + 2) % 4;
         }
+
+        public static int TurnLeft(int i)
+        {
+            return (i - 1 + 4) % 4;
+        }
+
+        public static int TurnRight(int i)
+        {
+            return (i + 1) % 4;
+        }
     }
 }

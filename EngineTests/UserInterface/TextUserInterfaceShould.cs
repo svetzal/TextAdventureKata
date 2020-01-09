@@ -18,33 +18,39 @@ namespace EngineTests.UserInterface
             _output = new StringBuilder();
             _writer = new StringWriter(_output);
             _ui = new TextUserInterface(_writer, null);
-            _entrance.Directions[0] = new NormalLocation
+            _entrance.Directions[DirectionCalculator.North] = new NormalLocation
             {
                 NearbySensation = "sensation north",
             };
-            _entrance.Directions[2] = new NormalLocation
+            _entrance.Directions[DirectionCalculator.East] = new NormalLocation
+            {
+                NearbySensation = "sensation east",
+            };
+            _entrance.Directions[DirectionCalculator.South] = new NormalLocation
             {
                 NearbySensation = "sensation south",
+            };
+            _entrance.Directions[DirectionCalculator.West] = new NormalLocation
+            {
+                NearbySensation = "sensation west",
             };
         }
 
         [Fact]
         public void RenderCorrectlyOrientedDescriptionText()
         {
-            var orientation = 1;
-            _ui.Render(orientation, _entrance);
+            _ui.Render(DirectionCalculator.East, _entrance);
             Assert.Equal(
-                "To your left, sensation north. To your right, sensation south.\n",
+                "Ahead of you, sensation east. To your right, sensation south. Behind you, sensation west. To your left, sensation north.\n",
                 _writer.ToString());
         }
 
         [Fact]
         public void RenderDescriptionText()
         {
-            var orientation = 0;
-            _ui.Render(orientation, _entrance);
+            _ui.Render(DirectionCalculator.North, _entrance);
             Assert.Equal(
-                "Ahead of you, sensation north. Behind you, sensation south.\n",
+                "Ahead of you, sensation north. To your right, sensation east. Behind you, sensation south. To your left, sensation west.\n",
                 _writer.ToString());
         }
     }
