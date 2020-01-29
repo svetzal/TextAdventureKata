@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using Engine.Locations;
@@ -49,10 +50,13 @@ namespace Engine
             return sb.ToString().Trim();
         }
 
-        public string GetCommand()
+        public IEnumerable<string> Commands()
         {
-            _writer.Write("You: ");
-            return _reader.ReadLine();
+            while (true)
+            {
+                _writer.Write("You: ");
+                yield return _reader.ReadLine();
+            }
         }
     }
 }

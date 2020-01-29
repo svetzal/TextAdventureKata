@@ -40,13 +40,13 @@ namespace EngineTests
         [Fact]
         public void StartWithInitialLocations()
         {
-            Assert.Equal(_entrance, _engine.Location);
+            Assert.Equal(_entrance, _engine.CurrentLocation);
         }
 
         [Fact]
         public void StartWithInitialOrientation()
         {
-            Assert.Equal(_engine.Orientation, _orientation);
+            Assert.Equal(_engine.CurrentOrientation, _orientation);
         }
     }
 }

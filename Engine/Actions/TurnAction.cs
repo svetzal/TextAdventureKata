@@ -25,19 +25,19 @@ namespace Engine.Actions
 
             if (RightSynonyms.Contains(parts.Last()))
             {
-                engine.Orientation = DirectionCalculator.TurnRight(engine.Orientation);
+                engine.CurrentOrientation = DirectionCalculator.TurnRight(engine.CurrentOrientation);
                 directionLabel = "right";
             }
 
             if (LeftSynonyms.Contains(parts.Last()))
             {
-                engine.Orientation = DirectionCalculator.TurnLeft(engine.Orientation);
+                engine.CurrentOrientation = DirectionCalculator.TurnLeft(engine.CurrentOrientation);
                 directionLabel = "left";
             }
 
             if (BackwardsSynonyms.Contains(parts.Last()))
             {
-                engine.Orientation = DirectionCalculator.Reverse(engine.Orientation);
+                engine.CurrentOrientation = DirectionCalculator.Reverse(engine.CurrentOrientation);
                 directionLabel = "around";
             }
 

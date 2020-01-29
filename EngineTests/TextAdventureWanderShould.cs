@@ -40,7 +40,7 @@ namespace EngineTests
         {
             _engine.ProcessCommand("turn right");
             _engine.ProcessCommand("move forward");
-            Assert.Equal(_two, _engine.Location);
+            Assert.Equal(_two, _engine.CurrentLocation);
         }
 
         [Fact]
@@ -50,7 +50,7 @@ namespace EngineTests
             _engine.ProcessCommand("move forward");
             _engine.ProcessCommand("turn right");
             _engine.ProcessCommand("move forward");
-            Assert.Equal(_three, _engine.Location);
+            Assert.Equal(_three, _engine.CurrentLocation);
         }
         
         [Fact]
@@ -62,7 +62,7 @@ namespace EngineTests
             _engine.ProcessCommand("move forward");
             _engine.ProcessCommand("turn right");
             _engine.ProcessCommand("move forward");
-            Assert.Equal(_four, _engine.Location);
+            Assert.Equal(_four, _engine.CurrentLocation);
         }
         
         [Fact]
@@ -76,7 +76,7 @@ namespace EngineTests
             _engine.ProcessCommand("move forward");
             _engine.ProcessCommand("turn right");
             _engine.ProcessCommand("move forward");
-            Assert.Equal(_one, _engine.Location);
+            Assert.Equal(_one, _engine.CurrentLocation);
         }
     }
 }

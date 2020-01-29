@@ -9,7 +9,7 @@ namespace Engine.Actions
         {
             try
             {
-                var item = engine.Location.Items.First(x => x.Name == parts.Last());
+                var item = engine.CurrentLocation.Items.First(x => x.Name == parts.Last());
                 engine.Inventory.Add(item);
                 return $"You picked up the {item.Name}";
             }

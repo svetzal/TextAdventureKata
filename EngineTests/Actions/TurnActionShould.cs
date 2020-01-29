@@ -13,7 +13,7 @@ namespace EngineTests.Actions
             var turnAction = new TurnAction();
             var engine = new TextAdventureEngine(new NormalLocation(), DirectionCalculator.North);
             turnAction.Execute(engine, new[] {"turn", "right"});
-            Assert.Equal(1, engine.Orientation);
+            Assert.Equal(1, engine.CurrentOrientation);
         }
     }
 }

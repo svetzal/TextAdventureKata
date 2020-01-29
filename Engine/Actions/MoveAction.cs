@@ -10,15 +10,15 @@ namespace Engine.Actions
             var direction = -1;
             
             if ("forward" == parts.Last())
-                direction = engine.Orientation;
+                direction = engine.CurrentOrientation;
             else if ("backward" == parts.Last())
-                direction = DirectionCalculator.Reverse(engine.Orientation);
+                direction = DirectionCalculator.Reverse(engine.CurrentOrientation);
 
             if (direction == -1) return $"I don't know how to move {parts.Last()}";
-            if (engine.Location.Directions[direction] == null) return $"You cannot move {parts.Last()}";
+            if (engine.CurrentLocation.Directions[direction] == null) return $"You cannot move {parts.Last()}";
             
-            var oldLocation = engine.Location;
-            engine.Location = oldLocation.Directions[direction];
+            var oldLocation = engine.CurrentLocation;
+            engine.CurrentLocation = oldLocation.Directions[direction];
 
             return $"You move {parts.Last()}";
         }

@@ -26,17 +26,17 @@ namespace EngineTests.Actions
         [Fact]
         public void MoveForward()
         {
-            _engine.Orientation = DirectionCalculator.North;
+            _engine.CurrentOrientation = DirectionCalculator.North;
             _moveAction.Execute(_engine, new[] {"move", "forward"});
-            Assert.Equal(_secondLocation, _engine.Location);
+            Assert.Equal(_secondLocation, _engine.CurrentLocation);
         }
 
         [Fact]
         public void MoveBackward()
         {
-            _engine.Orientation = DirectionCalculator.South;
+            _engine.CurrentOrientation = DirectionCalculator.South;
             _moveAction.Execute(_engine, new[] {"move", "backward"});
-            Assert.Equal(_secondLocation, _engine.Location);
+            Assert.Equal(_secondLocation, _engine.CurrentLocation);
         }
     }
 }

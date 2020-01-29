@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Engine;
 using Engine.Locations;
@@ -10,27 +11,12 @@ namespace Game
         private static void Main(string[] args)
         {
             var ui = new TextUserInterface(Console.Out, Console.In);
-            var engine = new TextAdventureEngine(new MainDungeonBuilder().Build(), DirectionCalculator.RandomDirection());
-            while (engine.Running)
-            {
-                ui.Render(engine.Orientation, engine.Location);
-                var command = ui.GetCommand();
-                var result = engine.ProcessCommand(command);
-                ui.Render(result);
+            var engine =
+                new TextAdventureEngine(new MainDungeonBuilder().Build(), DirectionCalculator.RandomDirection());
+            var gameRunner = new GameRunner(engine, ui);
 
-                if (engine.Location.GetType() == typeof(ExitLocation))
-                {
-                    engine.Halt();
-                    if (engine.Inventory.Any(x => x.Name == "key"))
-                    {
-                        ui.Render("You used the key to exit the dungeon! You won!");
-                    }
-                    else
-                    {
-                        ui.Render("You exited the dungeon without the key. You have lost.");
-                    }
-                }
-            }
+            using var inputEnumerator = ui.Commands().GetEnumerator();
+            gameRunner.Execute(inputEnumerator);
         }
     }
 }

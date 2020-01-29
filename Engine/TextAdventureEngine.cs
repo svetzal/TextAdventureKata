@@ -15,23 +15,19 @@ namespace Engine
         private readonly AvailableActions _availableActions = new AvailableActions();
         private readonly CommandParser _parser = new CommandParser();
 
-        public TextAdventureEngine(ILocation location, int orientation)
-        {
-            Orientation = orientation;
-            Location = location;
-            Inventory = new List<InventoryItem>();
-        }
-
-        public int Orientation { get; set; }
-
-        public ILocation Location { get; set; }
+        public States CurrentState { get; private set; }
+        public int CurrentOrientation { get; set; }
+        public ILocation CurrentLocation { get; set; }
+        public List<InventoryItem> Inventory { get; set; }
 
         public bool Running => CurrentState == States.NeedsInput;
 
-        public States CurrentState { get; private set; }
-
-        public string Greeting => "Hello, World!";
-        public List<InventoryItem> Inventory { get; set; }
+        public TextAdventureEngine(ILocation location, int newOrientation)
+        {
+            CurrentOrientation = newOrientation;
+            CurrentLocation = location;
+            Inventory = new List<InventoryItem>();
+        }
 
         public string ProcessCommand(string command)
         {
