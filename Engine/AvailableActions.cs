@@ -18,7 +18,7 @@ namespace Engine
                 new ActionRecognizer<MoveAction>(parts => parts.Length == 2 && parts[0] == "move"),
                 new ActionRecognizer<PickUpAction>(parts => parts.Length == 3
                                                             && parts[0] == "pick"
-                                                            && parts[1] == "up"),
+                                                            && parts[1] == "up")
             };
 
         public IWrittenAction Find(string[] parts)

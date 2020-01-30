@@ -1,18 +1,11 @@
 using Engine;
 using Engine.Locations;
-using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 using Xunit;
 
 namespace EngineTests
 {
     public class TextAdventureWanderShould
     {
-        private TextAdventureEngine _engine;
-        private readonly ILocation _one;
-        private readonly ILocation _two;
-        private readonly ILocation _three;
-        private readonly ILocation _four;
-
         public TextAdventureWanderShould()
         {
             _one = BuildLocation("one");
@@ -28,43 +21,21 @@ namespace EngineTests
             _engine = new TextAdventureEngine(_one, DirectionCalculator.North);
         }
 
-        private ILocation BuildLocation(string desc) =>
-            new NormalLocation
+        private readonly TextAdventureEngine _engine;
+        private readonly ILocation _one;
+        private readonly ILocation _two;
+        private readonly ILocation _three;
+        private readonly ILocation _four;
+
+        private ILocation BuildLocation(string desc)
+        {
+            return new NormalLocation
             {
                 NearbySensation = desc,
-                DetailedSensation = desc,
+                DetailedSensation = desc
             };
-
-        [Fact]
-        public void MoveOne()
-        {
-            _engine.ProcessCommand("turn right");
-            _engine.ProcessCommand("move forward");
-            Assert.Equal(_two, _engine.CurrentLocation);
         }
 
-        [Fact]
-        public void MoveTwo()
-        {
-            _engine.ProcessCommand("turn right");
-            _engine.ProcessCommand("move forward");
-            _engine.ProcessCommand("turn right");
-            _engine.ProcessCommand("move forward");
-            Assert.Equal(_three, _engine.CurrentLocation);
-        }
-        
-        [Fact]
-        public void MoveThree()
-        {
-            _engine.ProcessCommand("turn right");
-            _engine.ProcessCommand("move forward");
-            _engine.ProcessCommand("turn right");
-            _engine.ProcessCommand("move forward");
-            _engine.ProcessCommand("turn right");
-            _engine.ProcessCommand("move forward");
-            Assert.Equal(_four, _engine.CurrentLocation);
-        }
-        
         [Fact]
         public void MoveFour()
         {
@@ -77,6 +48,36 @@ namespace EngineTests
             _engine.ProcessCommand("turn right");
             _engine.ProcessCommand("move forward");
             Assert.Equal(_one, _engine.CurrentLocation);
+        }
+
+        [Fact]
+        public void MoveOne()
+        {
+            _engine.ProcessCommand("turn right");
+            _engine.ProcessCommand("move forward");
+            Assert.Equal(_two, _engine.CurrentLocation);
+        }
+
+        [Fact]
+        public void MoveThree()
+        {
+            _engine.ProcessCommand("turn right");
+            _engine.ProcessCommand("move forward");
+            _engine.ProcessCommand("turn right");
+            _engine.ProcessCommand("move forward");
+            _engine.ProcessCommand("turn right");
+            _engine.ProcessCommand("move forward");
+            Assert.Equal(_four, _engine.CurrentLocation);
+        }
+
+        [Fact]
+        public void MoveTwo()
+        {
+            _engine.ProcessCommand("turn right");
+            _engine.ProcessCommand("move forward");
+            _engine.ProcessCommand("turn right");
+            _engine.ProcessCommand("move forward");
+            Assert.Equal(_three, _engine.CurrentLocation);
         }
     }
 }

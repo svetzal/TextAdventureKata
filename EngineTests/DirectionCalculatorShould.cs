@@ -6,9 +6,9 @@ namespace EngineTests
     public class DirectionCalculatorShould
     {
         [Fact]
-        public void ReturnSouthWhenReversedFromNorth()
+        public void ReturnEastWhenReversedFromWest()
         {
-            Assert.Equal(DirectionCalculator.South, DirectionCalculator.Reverse(DirectionCalculator.North));
+            Assert.Equal(DirectionCalculator.West, DirectionCalculator.Reverse(DirectionCalculator.East));
         }
 
         [Fact]
@@ -18,15 +18,15 @@ namespace EngineTests
         }
 
         [Fact]
-        public void ReturnEastWhenReversedFromWest()
-        {
-            Assert.Equal(DirectionCalculator.West, DirectionCalculator.Reverse(DirectionCalculator.East));
-        }
-
-        [Fact]
         public void ReturnNorthWhenTurnedRightFromWest()
         {
             Assert.Equal(DirectionCalculator.North, DirectionCalculator.TurnRight(DirectionCalculator.West));
+        }
+
+        [Fact]
+        public void ReturnSouthWhenReversedFromNorth()
+        {
+            Assert.Equal(DirectionCalculator.South, DirectionCalculator.Reverse(DirectionCalculator.North));
         }
 
         [Fact]

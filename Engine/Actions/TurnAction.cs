@@ -41,7 +41,9 @@ namespace Engine.Actions
                 directionLabel = "around";
             }
 
-            return directionLabel == string.Empty ? "I don't understand which way you want me to turn." : $"You turn {directionLabel}.";
+            return directionLabel == string.Empty
+                ? "I don't understand which way you want me to turn."
+                : $"You turn {directionLabel}.";
         }
     }
 }

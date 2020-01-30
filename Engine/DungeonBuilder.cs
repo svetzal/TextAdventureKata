@@ -7,7 +7,7 @@ namespace Engine
         public static void Connect(int direction, ILocation from, ILocation to)
         {
             from.Directions[direction] = to;
-            to.Directions[DirectionCalculator.Reverse(direction)] = @from;
+            to.Directions[DirectionCalculator.Reverse(direction)] = from;
         }
     }
 }

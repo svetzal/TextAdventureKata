@@ -13,6 +13,7 @@ namespace Engine
         {
             return new Random().Next(4);
         }
+
         public static int Reverse(int i)
         {
             return (i + 2) % 4;

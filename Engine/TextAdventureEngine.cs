@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Engine.Locations;
 
 namespace Engine
@@ -15,19 +14,19 @@ namespace Engine
         private readonly AvailableActions _availableActions = new AvailableActions();
         private readonly CommandParser _parser = new CommandParser();
 
-        public States CurrentState { get; private set; }
-        public int CurrentOrientation { get; set; }
-        public ILocation CurrentLocation { get; set; }
-        public List<InventoryItem> Inventory { get; set; }
-
-        public bool Running => CurrentState == States.NeedsInput;
-
         public TextAdventureEngine(ILocation location, int newOrientation)
         {
             CurrentOrientation = newOrientation;
             CurrentLocation = location;
             Inventory = new List<InventoryItem>();
         }
+
+        public States CurrentState { get; private set; }
+        public int CurrentOrientation { get; set; }
+        public ILocation CurrentLocation { get; set; }
+        public List<InventoryItem> Inventory { get; set; }
+
+        public bool Running => CurrentState == States.NeedsInput;
 
         public string ProcessCommand(string command)
         {

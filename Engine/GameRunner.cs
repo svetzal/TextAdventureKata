@@ -9,10 +9,10 @@ namespace Engine
 
         public GameRunner(TextAdventureEngine engine, TextUserInterface ui)
         {
-            this._engine = engine;
-            this._ui = ui;
+            _engine = engine;
+            _ui = ui;
         }
-        
+
         public void Execute(IEnumerator<string> commands)
         {
             while (_engine.Running)

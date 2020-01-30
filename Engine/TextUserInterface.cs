@@ -35,7 +35,7 @@ namespace Engine
             sb.Append(location.DetailedSensation);
             sb.Append(" ");
 
-            for (var i = orientation; i < orientation+4; i++)
+            for (var i = orientation; i < orientation + 4; i++)
             {
                 var offsetOrientation = i % 4;
                 if (location.Directions[offsetOrientation] != null)

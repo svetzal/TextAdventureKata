@@ -8,11 +8,6 @@ namespace EngineTests.UserInterface
 {
     public class TextUserInterfaceShould
     {
-        private readonly ILocation _entrance = new NormalLocation();
-        private readonly StringBuilder _output;
-        private readonly StringWriter _writer;
-        private readonly TextUserInterface _ui;
-
         public TextUserInterfaceShould()
         {
             _output = new StringBuilder();
@@ -20,21 +15,26 @@ namespace EngineTests.UserInterface
             _ui = new TextUserInterface(_writer, null);
             _entrance.Directions[DirectionCalculator.North] = new NormalLocation
             {
-                NearbySensation = "sensation north",
+                NearbySensation = "sensation north"
             };
             _entrance.Directions[DirectionCalculator.East] = new NormalLocation
             {
-                NearbySensation = "sensation east",
+                NearbySensation = "sensation east"
             };
             _entrance.Directions[DirectionCalculator.South] = new NormalLocation
             {
-                NearbySensation = "sensation south",
+                NearbySensation = "sensation south"
             };
             _entrance.Directions[DirectionCalculator.West] = new NormalLocation
             {
-                NearbySensation = "sensation west",
+                NearbySensation = "sensation west"
             };
         }
+
+        private readonly ILocation _entrance = new NormalLocation();
+        private readonly StringBuilder _output;
+        private readonly StringWriter _writer;
+        private readonly TextUserInterface _ui;
 
         [Fact]
         public void RenderCorrectlyOrientedDescriptionText()

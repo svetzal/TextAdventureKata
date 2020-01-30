@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 
 namespace Engine.Actions
@@ -8,7 +7,7 @@ namespace Engine.Actions
         public string Execute(TextAdventureEngine engine, string[] parts)
         {
             var direction = -1;
-            
+
             if ("forward" == parts.Last())
                 direction = engine.CurrentOrientation;
             else if ("backward" == parts.Last())
@@ -16,7 +15,7 @@ namespace Engine.Actions
 
             if (direction == -1) return $"I don't know how to move {parts.Last()}";
             if (engine.CurrentLocation.Directions[direction] == null) return $"You cannot move {parts.Last()}";
-            
+
             var oldLocation = engine.CurrentLocation;
             engine.CurrentLocation = oldLocation.Directions[direction];
 
