@@ -9,7 +9,7 @@ The rules of this kata were simple:
 
 A couple of things I wanted to do...
 
-- Use C# to improve my C# skills
+- Improve my C# skills
 - These days, a text-only console game is like depriving the senses. What if the player were blind? How would I write the game content?
 
 ## Projects
