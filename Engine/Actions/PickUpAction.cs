@@ -13,7 +13,7 @@ namespace Engine.Actions
                 engine.Inventory.Add(item);
                 return $"You picked up the {item.Name}";
             }
-            catch (InvalidOperationException ex)
+            catch (InvalidOperationException)
             {
                 return $"There is no {parts.Last()} here.";
             }
