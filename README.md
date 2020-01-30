@@ -21,3 +21,13 @@ The `EngineTests` project contains a reasonable test suite for the Engine. It co
 The `Game` project contains the console executable for the game, and a class that uses the Engine to construct a hand-crafted 5 room dungeon.
 
 All in all, I spent about 4 hours on this through January 2020. It runs on any platform that supports DotNet Core 3.
+
+## Running the Game
+
+You must have [DotNet Core 3.x](https://dotnet.microsoft.com/download/dotnet-core/3.1) installed on Windows, MacOS, or Linux.
+
+At this time, there are two ways you can proceed:
+
+1. Open the `TextAdventure.slm` file in Visual Studio or Jebrains Rider. Make sure `Game` is selected as your Startup Project, and run.
+
+2. Using the command-line, type `dotnet run --project Game`
